@@ -1,24 +1,24 @@
 Summary:	GNOME PDF Viewer
 Summary(pl):	Przegl±darka PDF-ów dla GNOME
 Name:		gpdf
-Version:	2.9.3
+Version:	2.10.0
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gpdf/2.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	255be9b94d3b263232a49162d51e41af
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gpdf/2.10/%{name}-%{version}.tar.bz2
+# Source0-md5:	9278cd3b9d06e3b1d364452f0e512fa9
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.9.90
+BuildRequires:	GConf2-devel >= 2.10.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.8.0
-BuildRequires:	gnome-vfs2-devel >= 2.9.90
-BuildRequires:	gtk+2-devel >= 2:2.6.2
-BuildRequires:	libglade2-devel >= 1:2.5.0
-BuildRequires:	libgnomeprintui-devel >= 2.8.2
-BuildRequires:	libgnomeui-devel >= 2.9.1
+BuildRequires:	gnome-vfs2-devel >= 2.10.0
+BuildRequires:	gtk+2-devel >= 2:2.6.4
+BuildRequires:	libglade2-devel >= 1:2.5.1
+BuildRequires:	libgnomeprintui-devel >= 2.10.0
+BuildRequires:	libgnomeui-devel >= 2.10.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
