@@ -1,12 +1,12 @@
-diff -urN aa/gpdf-0.124/configure.in gpdf-0.124/configure.in
---- aa/gpdf-0.124/configure.in	2004-03-09 12:03:05.000000000 +0100
-+++ gpdf-0.124/configure.in	2004-03-09 15:41:35.484133408 +0100
+diff -aurN gpdf-2.7.1.orig/configure.in gpdf-2.7.1/configure.in
+--- gpdf-2.7.1.orig/configure.in	2004-05-31 23:43:55.000000000 +0200
++++ gpdf-2.7.1/configure.in	2004-06-05 19:25:15.835765920 +0200
 @@ -78,7 +78,7 @@
  	      GPDF_DEPRECATED_CFLAGS="")
  AC_SUBST(GPDF_DEPRECATED_CFLAGS)
  
--ALL_LINGUAS="am ar az be bn ca cs cy da de el en_CA en_GB eo es eu fa fi fr ga gl he hi hr hu id is it ja kn ko lt lv mk ml mn ms nl nn no pa pl pt pt_BR ro ru sk sl sq sr sr@Latn sv ta th tr uk vi wa zh_CN zh_TW"
-+ALL_LINGUAS="am ar az be bn ca cs cy da de el en_CA en_GB eo es eu fa fi fr ga gl he hi hr hu id is it ja kn ko lt lv mk ml mn ms nb nl nn pa pl pt pt_BR ro ru sk sl sq sr sr@Latn sv ta th tr uk vi wa zh_CN zh_TW"
+-ALL_LINGUAS="af am ar az be bn ca cs cy da de el en_CA en_GB eo es eu fa fi fr ga gl gu he hi hr hu id is it ja kn ko lt lv mk ml mn ms nl nn no pa pl pt pt_BR ro ru sk sl sq sr sr@Latn sv ta th tr uk vi wa zh_CN zh_TW"
++ALL_LINGUAS="af am ar az be bn ca cs cy da de el en_CA en_GB eo es eu fa fi fr ga gl gu he hi hr hu id is it ja kn ko lt lv mk ml mn ms nb nl nn pa pl pt pt_BR ro ru sk sl sq sr sr@Latn sv ta th tr uk vi wa zh_CN zh_TW"
  
  GETTEXT_PACKAGE=AC_PACKAGE_NAME
  AC_SUBST(GETTEXT_PACKAGE)
