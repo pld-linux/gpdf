@@ -1,12 +1,12 @@
 Summary:	GNOME PDF Viewer
 Summary(pl):	Przegl±darka PDF-ów dla GNOME
 Name:		gpdf
-Version:	0.103
+Version:	0.104
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/%{version}/%{name}-%{version}.tar.bz2
-# Source0-md5:	e6a162dc9895eeb4738e142072d9bbbc
+# Source0-md5:	37114c8d6d5baddce2e1d9d55c086703
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 1.2.1-10
 BuildRequires:	bonobo-activation-devel >= 2.1.0-3
