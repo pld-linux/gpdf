@@ -1,17 +1,17 @@
 Summary:	GNOME PDF Viewer
 Summary(pl):	Przegl±darka PDF-ów dla GNOME
 Name:		gpdf
-Version:	0.100
+Version:	0.101
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/0.100/%{name}-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/0.101/%{name}-%{version}.tar.bz2
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 1.2.1-10
 BuildRequires:	bonobo-activation-devel >= 2.1.0-3
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2.2.0
-BuildRequires:	rpm-build >= 4.1-8.2
+BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	scrollkeeper
 Requires(post):	GConf2
 Requires(post):	scrollkeeper
@@ -59,7 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/gnome-pdf-viewer
 %{_datadir}/application-registry/gpdf.applications
-%{_datadir}/applications/gpdf.desktop
+%{_desktopdir}/gpdf.desktop
 %{_datadir}/gnome-2.0/ui/gpdf*
 %{_datadir}/gpdf
 %{_datadir}/mime-info/gpdf.keys
