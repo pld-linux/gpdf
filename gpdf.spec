@@ -1,5 +1,5 @@
 Summary:	GNOME PDF Viewer
-Summary(pl):	Przegl±darka PDFów dla GNOME
+Summary(pl):	Przegl±darka PDF-ów dla GNOME
 Name:		gpdf
 Version:	0.100
 Release:	1
@@ -7,16 +7,12 @@ License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/0.100/%{name}-%{version}.tar.bz2
 URL:		http://www.gnome.org/
-BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	autoconf
+BuildRequires:	GConf2-devel >= 1.2.1-10
+BuildRequires:	bonobo-activation-devel >= 2.1.0-3
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2.2.0
-BuildRequires:	libtool
-BuildRequires:	GConf2-devel >= 1.2.1-10
-BuildRequires:	scrollkeeper
-BuildRequires:	bonobo-activation-devel >= 2.1.0-3
 BuildRequires:	rpm-build >= 4.1-8.2
+BuildRequires:	scrollkeeper
 Requires(post):	GConf2
 Requires(post):	scrollkeeper
 Requires:	bonobo-activation >= 2.1.0-3
@@ -25,9 +21,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 GPDF is an open source viewer for Portable Document Format (PDF)
 files.  (These are also sometimes also called 'Acrobat' files, from
-the name of Adobe's PDF software.)  The Xpdf project also includes a
-PDF text extractor, PDF-to-PostScript converter, and various other
-utilities.
+the name of Adobe's PDF software.)
+
+%description -l pl
+GPDF to wolnodostêpna przegl±darka do plików PDF (Portable Document
+Format; zwanych te¿ czasem plikami "Acrobata" od nazwy oprogramowania
+do plików PDF firmy Adobe).
 
 %prep
 %setup -q
