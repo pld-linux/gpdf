@@ -1,25 +1,25 @@
 Summary:	GNOME PDF Viewer
 Summary(pl):	Przegl±darka PDF-ów dla GNOME
 Name:		gpdf
-Version:	2.7.2
+Version:	2.7.90
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.7/%{name}-%{version}.tar.bz2
-# Source0-md5:	2753e53d7087ed2b5db60d70455e5f07
+# Source0-md5:	e0282b35b20b6634fdef14834eb5fb89
 Patch0:		%{name}-locale-names.patch
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.7.1
+BuildRequires:	GConf2-devel >= 2.7.3
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.4.0
-BuildRequires:	gnome-vfs2-devel >= 2.7.1
-BuildRequires:	gtk+2-devel >= 2:2.4.0
-BuildRequires:	libbonoboui-devel >= 2.6.0
-BuildRequires:	libglade2-devel >= 1:2.3.6
-BuildRequires:	libgnomeprintui-devel >= 2.6.0
-BuildRequires:	libgnomeui-devel >= 2.7.1
+BuildRequires:	gnome-vfs2-devel >= 2.7.90
+BuildRequires:	gtk+2-devel >= 2:2.4.4
+BuildRequires:	libbonoboui-devel >= 2.6.1
+BuildRequires:	libglade2-devel >= 1:2.4.0
+BuildRequires:	libgnomeprintui-devel >= 2.7.1
+BuildRequires:	libgnomeui-devel >= 2.7.2
 BuildRequires:	libtool
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	scrollkeeper
