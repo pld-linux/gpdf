@@ -2,7 +2,7 @@ Summary:	GNOME PDF Viewer
 Summary(pl):	Przegl±darka PDF-ów dla GNOME
 Name:		gpdf
 Version:	2.8.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.8/%{name}-%{version}.tar.bz2
@@ -22,7 +22,7 @@ BuildRequires:	libgnomeui-devel >= 2.8.0
 BuildRequires:	libtool
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	scrollkeeper
-Requires(post):	GConf2-devel
+Requires(post):	GConf2
 Requires(post,postun):	scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
