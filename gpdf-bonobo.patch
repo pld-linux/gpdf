@@ -1,0 +1,11 @@
+diff -Nuard gpdf-0.120.orig/shell/gpdf.c gpdf-0.120/shell/gpdf.c
+--- gpdf-0.120.orig/shell/gpdf.c	2003-11-18 13:13:18.000000000 +0100
++++ gpdf-0.120/shell/gpdf.c	2004-02-24 21:58:03.225896768 +0100
+@@ -649,6 +649,7 @@
+ 	window_list = g_list_remove (window_list, gpdf_window);
+ 
+ 	if (priv->bonobo_widget != NULL) {
++		bonobo_control_frame_control_deactivate(bonobo_widget_get_control_frame (priv->bonobo_widget));
+ 		g_object_unref  (G_OBJECT (priv->bonobo_widget));
+ 		priv->bonobo_widget = NULL;
+ 	}
