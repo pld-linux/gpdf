@@ -1,22 +1,26 @@
 Summary:	GNOME PDF Viewer
 Summary(pl):	Przegl±darka PDF-ów dla GNOME
 Name:		gpdf
-Version:	0.120
-Release:	4
+Version:	0.130
+Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/%{version}/%{name}-%{version}.tar.bz2
-# Source0-md5:	d1ee4dd3c46c4122c1df20fada16ea46
-Patch0:		%{name}-bonobo.patch
+# Source0-md5:	9c8cfa8268c09e8ee45f613d040720fe
+Patch0:		%{name}-locale-names.patch
 URL:		http://www.gnome.org/
-BuildRequires:	libstdc++-devel
-BuildRequires:	GConf2-devel >= 2.4.0
+BuildRequires:	GConf2-devel >= 2.5.90
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-vfs2-devel >= 2.4.0
-BuildRequires:	gtk+2-devel >= 2.2.3
-BuildRequires:	libbonoboui-devel >= 2.4.0
-BuildRequires:	libgnomeprintui-devel >= 2.4.0
-BuildRequires:	libgnomeui-devel >= 2.4.0
+BuildRequires:	gnome-common >= 2.4.0
+BuildRequires:	gnome-vfs2-devel >= 2.5.90
+BuildRequires:	gtk+2-devel >= 2:2.4.0
+BuildRequires:	libbonoboui-devel >= 2.5.4
+BuildRequires:	libglade2-devel >= 2.3.6
+BuildRequires:	libgnomeprintui-devel >= 2.5.0
+BuildRequires:	libgnomeui-devel >= 2.6.0
+BuildRequires:	libtool
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -33,23 +37,36 @@ Format).
 %setup -q
 %patch0 -p1
 
+mv po/{no,nb}.po
+
 %build
-cp -f /usr/share/automake/config.sub .
-%configure
+%{__libtoolize}
+%{__aclocal} -I %{_aclocaldir}/gnome2-macros
+%{__autoconf}
+%{__automake}
+%configure \
+	--disable-schemas-install \
+	--enable-a4-paper \
+	--enable-multithreaded
+
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 
 %find_lang %{name} --with-gnome
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post   -p /usr/bin/scrollkeeper-update
+%post
+/usr/bin/scrollkeeper-update
+%gconf_schema_install
+
 %postun -p /usr/bin/scrollkeeper-update
 
 %files -f %{name}.lang
@@ -57,6 +74,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/gnome-pdf-viewer
+%{_sysconfdir}/gconf/schemas/*.schemas
 %{_datadir}/application-registry/gpdf.applications
 %{_desktopdir}/gpdf.desktop
 %{_datadir}/gnome-2.0/ui/gpdf*
