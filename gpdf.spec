@@ -1,25 +1,24 @@
 Summary:	GNOME PDF Viewer
 Summary(pl):	Przegl±darka PDF-ów dla GNOME
 Name:		gpdf
-Version:	2.8.3
+Version:	2.10.0
 Release:	1
-License:	GPL
+License:	GPL v2+
 Group:		X11/Applications/Graphics
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	c12d3cbf57611286ab80ee4febe2afdd
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gpdf/2.10/%{name}-%{version}.tar.bz2
+# Source0-md5:	9278cd3b9d06e3b1d364452f0e512fa9
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.8.1
+BuildRequires:	GConf2-devel >= 2.10.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.8.0
-BuildRequires:	gnome-vfs2-devel >= 2.8.3
-BuildRequires:	gtk+2-devel >= 2:2.4.4
-BuildRequires:	libbonoboui-devel >= 2.8.0
-BuildRequires:	libglade2-devel >= 1:2.4.1
-BuildRequires:	libgnomeprintui-devel >= 2.8.2
-BuildRequires:	libgnomeui-devel >= 2.8.0
+BuildRequires:	gnome-vfs2-devel >= 2.10.0
+BuildRequires:	gtk+2-devel >= 2:2.6.4
+BuildRequires:	libglade2-devel >= 1:2.5.1
+BuildRequires:	libgnomeprintui-devel >= 2.10.0
+BuildRequires:	libgnomeui-devel >= 2.10.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
@@ -50,7 +49,6 @@ Format).
 	--disable-schemas-install \
 	--enable-a4-paper \
 	--enable-multithreaded
-
 %{__make}
 
 %install
