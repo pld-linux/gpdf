@@ -1,0 +1,12 @@
+diff -urN gpdf-2.8.0.orig/gpdf.desktop.in gpdf-2.8.0/gpdf.desktop.in
+--- gpdf-2.8.0.orig/gpdf.desktop.in	2004-11-23 12:37:11.940976264 +0100
++++ gpdf-2.8.0/gpdf.desktop.in	2004-11-23 12:37:42.945262896 +0100
+@@ -6,7 +6,7 @@
+ Icon=gnome-pdf
+ Terminal=false
+ Type=Application
+-Categories=GNOME;Application;Graphics;VectorGraphics;Viewer;
++Categories=GTK;GNOME;Graphics;Viewer;
+ StartupNotify=true
+ MimeType=application/pdf;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
