@@ -23,13 +23,11 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 GPDF is an open source viewer for Portable Document Format (PDF)
-files.  (These are also sometimes also called 'Acrobat' files, from
-the name of Adobe's PDF software.)
+files.
 
 %description -l pl
 GPDF to wolnodostêpna przegl±darka do plików PDF (Portable Document
-Format; zwanych te¿ czasem plikami "Acrobata" od nazwy oprogramowania
-do plików PDF firmy Adobe).
+Format).
 
 %prep
 %setup -q
