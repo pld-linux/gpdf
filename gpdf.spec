@@ -2,7 +2,7 @@ Summary:	GNOME PDF Viewer
 Summary(pl):	Przegl±darka PDF-ów dla GNOME
 Name:		gpdf
 Version:	0.120
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/%{version}/%{name}-%{version}.tar.bz2
@@ -36,6 +36,7 @@ do plików PDF firmy Adobe).
 %patch0 -p1
 
 %build
+cp -f /usr/share/automake/config.sub .
 %configure
 %{__make}
 
