@@ -14,8 +14,6 @@ BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2.2.0
 BuildRequires:	rpm-build >= 4.1-10
 BuildRequires:	scrollkeeper
-Requires(post):	GConf2
-Requires(post):	scrollkeeper
 Requires:	bonobo-activation >= 2.1.0-3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -47,12 +45,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-
-%post
-/usr/bin/scrollkeeper-update
-%gconf_schema_install
-
-%postun -p /usr/bin/scrollkeeper-update
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
