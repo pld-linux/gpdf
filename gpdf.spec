@@ -1,12 +1,12 @@
 Summary:	GNOME PDF Viewer
 Summary(pl):	Przegl±darka PDF-ów dla GNOME
 Name:		gpdf
-Version:	0.122
+Version:	0.120
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/%{version}/%{name}-%{version}.tar.bz2
-# Source0-md5:	9119f13bb6ef6d4b20c1870efb392656
+# Source0-md5:	d1ee4dd3c46c4122c1df20fada16ea46
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.4.0
 BuildRequires:	gettext-devel
@@ -33,10 +33,7 @@ do plików PDF firmy Adobe).
 %setup -q
 
 %build
-%configure \
-	--disable-schemas-install \
-	--enable-a4-paper \
-	--enable-multithreaded
+%configure
 %{__make}
 
 %install
@@ -50,11 +47,8 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	
-/usr/bin/scrollkeeper-update
-%gconf_schema_install
-
-%postun	-p /usr/bin/scrollkeeper-update
+%post   -p /usr/bin/scrollkeeper-update
+%postun -p /usr/bin/scrollkeeper-update
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -69,4 +63,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/bonobo/servers/*
 %{_pixmapsdir}/*
 %{_omf_dest_dir}/*
-%{_sysconfdir}/gconf/schemas/*.schemas
