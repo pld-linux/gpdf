@@ -2,7 +2,7 @@ Summary:	GNOME PDF Viewer
 Summary(pl):	Przegl±darka PDF-ów dla GNOME
 Name:		gpdf
 Version:	2.10.0
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gpdf/2.10/%{name}-%{version}.tar.bz2
@@ -17,14 +17,15 @@ BuildRequires:	gnome-common >= 2.8.0
 BuildRequires:	gnome-vfs2-devel >= 2.10.0
 BuildRequires:	gtk+2-devel >= 2:2.6.4
 BuildRequires:	libglade2-devel >= 1:2.5.1
-BuildRequires:	libgnomeprintui-devel >= 2.10.0
-BuildRequires:	libgnomeui-devel >= 2.10.0
+BuildRequires:	libgnomeprintui-devel >= 2.10.2
+BuildRequires:	libgnomeui-devel >= 2.10.0-2
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
-BuildRequires:	rpm-build >= 4.1-10
+BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
-Requires(post):	GConf2
+Requires(post,preun):	GConf2
+Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -59,6 +60,7 @@ rm -rf $RPM_BUILD_ROOT
 	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 
 rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
+rm -rf $RPM_BUILD_ROOT%{_datadir}/{mime-info,application-registry}
 
 %find_lang %{name} --with-gnome
 
@@ -66,15 +68,16 @@ rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 rm -rf $RPM_BUILD_ROOT
 
 %post
-umask 022
-/usr/bin/scrollkeeper-update
-%gconf_schema_install
-[ ! -x /usr/bin/update-desktop-database ] || /usr/bin/update-desktop-database >/dev/null 2>&1 ||:
+%scrollkeeper_update_post
+%gconf_schema_install gpdf.schemas
+%update_desktop_database_post
+
+%preun
+%gconf_schema_uninstall gpdf.schemas
 
 %postun
-umask 022
-/usr/bin/scrollkeeper-update
-[ ! -x /usr/bin/update-desktop-database ] || /usr/bin/update-desktop-database >/dev/null 2>&1
+%scrollkeeper_update_postun
+%update_desktop_database_postun
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -82,11 +85,9 @@ umask 022
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/gnome-pdf-viewer
 %{_sysconfdir}/gconf/schemas/*.schemas
-%{_datadir}/application-registry/gpdf.applications
 %{_desktopdir}/gpdf.desktop
 %{_datadir}/gnome-2.0/ui/gpdf*
 %{_datadir}/%{name}
-%{_datadir}/mime-info/gpdf.keys
 %{_libdir}/bonobo/servers/*
 %{_pixmapsdir}/*
 %{_omf_dest_dir}/*
