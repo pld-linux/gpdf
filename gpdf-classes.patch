@@ -1,0 +1,12 @@
+--- gpdf-2.8.2/xpdf/TextOutputDev.h.orig	2004-05-17 21:37:57.000000000 +0200
++++ gpdf-2.8.2/xpdf/TextOutputDev.h	2006-06-09 08:56:54.000000000 +0200
+@@ -25,6 +25,9 @@
+ class GfxFont;
+ class GfxState;
+ class UnicodeMap;
++class TextBlock;
++class TextPage;
++class TextLineFrag;
+ 
+ //------------------------------------------------------------------------
+ 
