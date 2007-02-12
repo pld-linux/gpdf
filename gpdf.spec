@@ -1,5 +1,5 @@
 Summary:	GNOME PDF Viewer
-Summary(pl):	Przegl±darka PDF-ów dla GNOME
+Summary(pl.UTF-8):   PrzeglÄ…darka PDF-Ã³w dla GNOME
 Name:		gpdf
 Version:	2.10.0
 Release:	4
@@ -36,8 +36,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 GPDF is an open source viewer for Portable Document Format (PDF)
 files.
 
-%description -l pl
-GPDF to wolnodostêpna przegl±darka do plików PDF (Portable Document
+%description -l pl.UTF-8
+GPDF to wolnodostÄ™pna przeglÄ…darka do plikÃ³w PDF (Portable Document
 Format).
 
 %prep
