@@ -1,5 +1,5 @@
 Summary:	GNOME PDF Viewer
-Summary(pl.UTF-8):   Przeglądarka PDF-ów dla GNOME
+Summary(pl.UTF-8):	Przeglądarka PDF-ów dla GNOME
 Name:		gpdf
 Version:	2.10.0
 Release:	4
