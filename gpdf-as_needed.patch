@@ -1,0 +1,61 @@
+--- gpdf-2.10.0/configure.in.orig	2007-09-18 21:15:56.083275510 +0000
++++ gpdf-2.10.0/configure.in	2007-09-18 21:16:25.578775789 +0000
+@@ -35,7 +35,7 @@
+ AM_PROG_CC_STDC
+ AC_PROG_CXX
+ AC_STDC_HEADERS
+-AC_PROG_RANLIB
++AC_PROG_LIBTOOL
+ 
+ AC_PATH_PROG(GLIB_GENMARSHAL, glib-genmarshal)
+ 
+--- gpdf-2.10.0/xpdf/Makefile.am.orig	2007-09-18 21:04:58.683565958 +0000
++++ gpdf-2.10.0/xpdf/Makefile.am	2007-09-18 21:06:10.172659849 +0000
+@@ -20,7 +20,7 @@
+ 
+ libexec_PROGRAMS = gnome-pdf-viewer
+ 
+-noinst_LIBRARIES = libxpdf.a libgpdf.a
++noinst_LTLIBRARIES = libxpdf.a libgpdf.la
+ 
+ libxpdf_a_SOURCES =		\
+ 	Annot.cc		\
+@@ -112,7 +112,7 @@
+ 	gpdf-annots-view.h
+ endif
+ 
+-libgpdf_a_SOURCES =			\
++libgpdf_la_SOURCES =			\
+ 	BonoboStream.cc			\
+ 	BonoboStream.h			\
+ 	GnomeVFSStream.cc		\
+@@ -162,6 +162,9 @@
+ 	gpdf-font-face.h		\
+ 	$(marshal_sources)
+ 
++libgpdf_la_LIBADD =			\
++	$(EXTRA_GNOME_LIBS)
++
+ gnome_pdf_viewer_SOURCES =		\
+ 	$(common_sources)		\
+ 	bonobo-application-x-pdf.cc	\
+@@ -180,7 +183,7 @@
+ 
+ gnome_pdf_viewer_LDADD =					\
+ 	libxpdf.a						\
+-	libgpdf.a						\
++	libgpdf.la						\
+ 	$(top_builddir)/goo/libGoo.a				\
+ 	$(top_builddir)/fofi/libfofi.a				\
+ 	$(top_builddir)/lib/ggv-sidebar/libggv-sidebar.a	\
+--- gpdf-2.10.0/xpdf/tests/Makefile.am.orig	2007-09-18 21:21:17.034312419 +0000
++++ gpdf-2.10.0/xpdf/tests/Makefile.am	2007-09-18 21:21:25.533015887 +0000
+@@ -9,7 +9,7 @@
+ 
+ LDADD = \
+ 	$(EXTRA_GNOME_LIBS)					\
+-	../libgpdf.a						\
++	../libgpdf.la						\
+ 	../libxpdf.a						\
+ 	$(top_builddir)/fofi/libfofi.a				\
+ 	$(top_builddir)/goo/libGoo.a				\
