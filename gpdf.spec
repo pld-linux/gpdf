@@ -11,6 +11,7 @@ Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-CAN-2005-2097.patch
 Patch2:		%{name}-cve-2006-0301.patch
 Patch3:		%{name}-classes.patch
+Patch4:		%{name}-as_needed.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.10.0
 BuildRequires:	autoconf >= 2.52
@@ -46,6 +47,7 @@ Format).
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
 %{__libtoolize}
